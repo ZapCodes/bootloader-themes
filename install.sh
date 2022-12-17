@@ -39,7 +39,7 @@ function check_root() {
 }
 
 function select_theme() {
-    themes=('Vimix' 'Cyberpunk' 'Shodan' 'fallout' 'CyberRe' 'Quit')
+    themes=('Vimix bootloader' 'Cyberpunk bootloader' 'Shodan bootloader' 'fallout bootloader' 'CyberRe bootloader' 'Quit')
 
     PS3=$(echo_prompt '\nChoose The Theme You Want: ')
     select THEME_NAME in "${themes[@]}"; do
@@ -162,7 +162,7 @@ function main() {
     update_grub
 
     echo_success 'All things completed!'
-    
+
     sudo reboot now
 }
 
