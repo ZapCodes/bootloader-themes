@@ -162,6 +162,8 @@ function main() {
     update_grub
 
     echo_success 'All things completed!'
+    
+    sudo reboot now
 }
 
 main
