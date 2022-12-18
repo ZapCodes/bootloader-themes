@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-#THEME_DIR='/usr/share/grub/themes'
+
 THEME_DIR='/boot/grub/themes'
 THEME_NAME=''
 
@@ -39,24 +39,24 @@ function check_root() {
 }
 
 function select_theme() {
-    themes=('Vimix bootloader' 'Cyberpunk bootloader' 'Shodan bootloader' 'fallout bootloader' 'CyberRe bootloader' 'Quit')
+    themes=('Vimix' 'Cyberpunk' 'Shodan' 'fallout' 'CyberRe' 'Quit')
 
     PS3=$(echo_prompt '\nChoose The Theme You Want: ')
     select THEME_NAME in "${themes[@]}"; do
         case "${THEME_NAME}" in
-            'Vimix bootloader')
+            'Vimix')
                 splash 'Installing Vimix Bootloader Theme'
                 break;;
-            'Cyberpunk bootloader')
+            'Cyberpunk')
                 splash 'Installing Cyberpunk Bootloader Theme'
                 break;;
-            'Shodan bootloader')
+            'Shodan')
                 splash 'Installing Shodan Bootloader Theme'
                 break;;
-            'fallout bootloader')
+            'fallout')
                 splash 'Installing fallout Bootloader Theme'
                 break;;
-            'CyberRe bootloader')
+            'CyberRe')
                 splash 'Installing CyberRe Bootloader Theme'
                 break;;
             'Quit')
@@ -162,8 +162,36 @@ function main() {
     update_grub
 
     echo_success 'All things completed!'
+    
+    reboot
 
-    sudo reboot now
+    #sudo reboot now !causing problems
 }
+
+function reboot() {
+	
+
+	read -p "Do you want to reboot? (yes/no) " yn
+
+	case $yn in 
+		yes ) sudo reboot;;
+		
+		y ) sudo reboot;;
+		
+		no ) echo exiting...;
+			exit;;
+		n ) echo exiting!
+			exit;;
+		* ) echo invalid response;
+			exit 1;;
+	esac
+
+	
+	
+   	
+}
+
+
+
 
 main
