@@ -4,6 +4,10 @@
   ```
   sudo sh ./install.sh
   ```
+  or
+  ```
+  sudo ./install.sh
+  ```
   
   * Select theme and reboot with
   
